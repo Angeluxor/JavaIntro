@@ -26,7 +26,9 @@ public class Ejercicios {
         + "\n 3. Pedir una nota y comprobar que sea válida"
         + "\n 4. Pedir 20 números enteros y sumarlos mientras se cumplan ciertas condiciones"
         + "\n 5. Leer 4 números e imprimir tantos asteriscos como indique el valor de cada uno"
-        + "\n 6. Codificar una frase");
+        + "\n 6. Codificar una frase"
+        + "\n 7. Verificar si un número es múltiplo de otro"
+        + "\n 8. Llenar un vector con los nombres de los compañeros de equipo");
 
         switch (opt = scann.nextInt()) {
             case 1:
@@ -50,8 +52,18 @@ public class Ejercicios {
                 String phrase = scann.nextLine();
                 System.out.println("La frase codificada es: \n" + maquinaEnigma(phrase));
                 break;
+            case 7:
+               scann.nextLine();
+               System.out.println("Por favor ingrese los dos números que desea validar");
+               int n1 = scann.nextInt();
+               int n2 = scann.nextInt();
+               esMultiplo(n1, n2);
+               break;
+            case 8:
+                arrayEquipo();
+                break;
             default:
-                throw new AssertionError();
+                System.out.println("Opción inválida");
         }
        
     }
@@ -221,6 +233,26 @@ public class Ejercicios {
         }
         return codedPhrase;
         
+    }
+    
+    public static void esMultiplo(int n1, int n2) {
+
+        if ((n1 % n2) == 0) {
+            System.out.println("El número " + n1 + " es múltiplo del número " + n2);
+        } else {
+            System.out.println("El número " + n1 + " NO es múltiplo del número " + n2);
+        }
+
+    }
+    
+    public static void arrayEquipo(){
+        String[] equipoV = new String[8];
+        Scanner scann = new Scanner(System.in);
+        for (int i = 0; i < equipoV.length; i++){
+            System.out.println("Por favor el ingrese el nombre del " + i+1 + "º compañero");
+            equipoV[i] = scann.nextLine();
+        }
+        System.out.println("Vector llenado de manera exitosa");
     }
 
 }
